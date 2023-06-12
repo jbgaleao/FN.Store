@@ -1,10 +1,7 @@
 ﻿using FN.Store.UI.Data;
 using FN.Store.UI.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace FN.Store.UI.Controllers
@@ -16,7 +13,7 @@ namespace FN.Store.UI.Controllers
 
         public ViewResult Index()
         {
-            var produtos = _ctx.Produtos.ToList();
+            List<Produto> produtos = _ctx.Produtos.ToList();
             return View(produtos);
         }
 
@@ -30,7 +27,7 @@ namespace FN.Store.UI.Controllers
                 produto = _ctx.Produtos.Find(id);
             }
 
-            var tipos = _ctx.TipoDeProdutos.ToList();
+            List<TipoDeProduto> tipos = _ctx.TipoDeProdutos.ToList();
             ViewBag.Tipos = tipos;
             return View(produto);
         }
@@ -57,7 +54,7 @@ namespace FN.Store.UI.Controllers
         public ActionResult DelProd(int id)
         {
 
-            var produto = _ctx.Produtos.Find(id);
+            Produto produto = _ctx.Produtos.Find(id);
             if (produto == null)
             {
                 return HttpNotFound();

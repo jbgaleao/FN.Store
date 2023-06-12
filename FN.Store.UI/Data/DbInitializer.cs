@@ -9,13 +9,13 @@ namespace FN.Store.UI.Data
 
         protected override void Seed(FNStoreDataContext context)
         {
-            var alimento = new TipoDeProduto() { Nome = "Alimento" };
-            var higiene = new TipoDeProduto() { Nome = "Higiene" };
-            var eletronico = new TipoDeProduto() { Nome = "Eletrônico" };
-            var limpeza = new TipoDeProduto() { Nome = "Limpeza" };
+            TipoDeProduto alimento = new TipoDeProduto() { Nome = "Alimento" };
+            TipoDeProduto higiene = new TipoDeProduto() { Nome = "Higiene" };
+            TipoDeProduto eletronico = new TipoDeProduto() { Nome = "Eletrônico" };
+            TipoDeProduto limpeza = new TipoDeProduto() { Nome = "Limpeza" };
 
 
-            var produtos = new List<Produto>() {
+            List<Produto> produtos = new List<Produto>() {
                 new Produto() { Nome = "Picanha", Preco = 70.5M, Qtde= 150, TipoDeProduto = alimento },
                 new Produto() { Nome = "Iogurte", Preco = 10.5M, Qtde= 250, TipoDeProduto = alimento},
                 new Produto() { Nome = "Pasta de dente", Preco = 9.5M, Qtde= 250, TipoDeProduto = higiene},

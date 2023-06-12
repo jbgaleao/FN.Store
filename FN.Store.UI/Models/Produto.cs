@@ -4,13 +4,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace FN.Store.UI.Models
 {
     [Table(nameof(Produto))]
-    public class Produto: Entity
+    public class Produto : Entity
     {
 
-        [Required, Column(TypeName ="varchar"), StringLength(100)]
+        [Required, Column(TypeName = "varchar"), StringLength(100)]
         public string Nome { get; set; }
 
-        [Column(TypeName ="money")]
+        [Column(TypeName = "money")]
         public decimal Preco { get; set; }
 
         [Column("Quantidade")]
