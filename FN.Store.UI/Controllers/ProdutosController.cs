@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace FN.Store.UI.Controllers
 {
+    [Authorize]
     public class ProdutosController : Controller
     {
 

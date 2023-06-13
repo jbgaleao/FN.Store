@@ -7,6 +7,7 @@ namespace FN.Store.UI.Models
     {
         [Key]
         public int Id { get; set; }
+
         public DateTime DataCadastro { get; set; } = DateTime.Now;
     }
 }

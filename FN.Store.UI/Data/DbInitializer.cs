@@ -24,8 +24,15 @@ namespace FN.Store.UI.Data
                 new Produto() { Nome = "Detergente", Preco = 4.49M, Qtde= 1520, TipoDeProduto = limpeza},
                 new Produto() { Nome = "Telefone sem fio", Preco = 125.15M, Qtde= 85, TipoDeProduto = eletronico},
             };
-
             context.Produtos.AddRange(produtos);
+
+            context.Usuarios.Add(new Usuario()
+            {
+                Nome = "JBGaleao",
+                Email = "jbgaleao@gmail.com",
+                Senha = "123456"
+            });
+
             context.SaveChanges();
 
         }
