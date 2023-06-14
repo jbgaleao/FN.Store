@@ -2,6 +2,7 @@
 using FN.Store.UI.Models;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace FN.Store.UI.Controllers
 {
@@ -10,10 +11,12 @@ namespace FN.Store.UI.Controllers
         private readonly FNStoreDataContext _ctx = new FNStoreDataContext();
 
         [HttpGet]
-        public ActionResult Login()
+        public ActionResult Login(string returnURL)
         {
-            return View();
+            LoginVM model = new LoginVM() { ReturnURL = returnURL };
+            return View(model);
         }
+
 
         [HttpPost]
         public ActionResult Login(LoginVM model)
@@ -23,7 +26,7 @@ namespace FN.Store.UI.Controllers
 
             if (usuario == null)
             {
-                ModelState.AddModelError("Email", "E-mail não lcalizado");
+                ModelState.AddModelError("Email", "E-mail não Localizado");
             }
             else
             {
@@ -36,11 +39,25 @@ namespace FN.Store.UI.Controllers
 
             if (ModelState.IsValid)
             {
-                return RedirectToAction("Sobre", "Home");
+                FormsAuthentication.SetAuthCookie(model.Email, model.PermanecerLogado);
+
+                if (!string.IsNullOrEmpty(model.ReturnURL) && Url.IsLocalUrl(model.ReturnURL))
+                {
+                    return Redirect(model.ReturnURL);
+                }
+                return RedirectToAction("Index", "Home");
             }
 
             return View(model);
         }
+
+        [HttpGet]
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login");
+        }
+
 
         protected override void Dispose(bool disposing)
         {

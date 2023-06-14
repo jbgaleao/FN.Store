@@ -22,3 +22,7 @@ label.is-invalid{
     font-weight:bold;
     color: #dc3545;
 }
+
+.footer-custon span {
+    color: #000000 !important;
+}
