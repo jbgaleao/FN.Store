@@ -51,6 +51,8 @@
     <Compile Include="EF\DbInitializer.cs" />
     <Compile Include="EF\FNStoreDataContext.cs" />
     <Compile Include="EF\Maps\ProdutoMap.cs" />
+    <Compile Include="EF\Maps\TipoDeProdutoMap.cs" />
+    <Compile Include="EF\Maps\UsuarioMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
