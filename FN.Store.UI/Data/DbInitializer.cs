@@ -1,4 +1,5 @@
-﻿using FN.Store.UI.Models;
+﻿using FN.Store.UI.Infra.Helpers;
+using FN.Store.UI.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
 
@@ -30,7 +31,7 @@ namespace FN.Store.UI.Data
             {
                 Nome = "JBGaleao",
                 Email = "jbgaleao@gmail.com",
-                Senha = "123456"
+                Senha = "123456".Encrypt()
             });
 
             context.SaveChanges();

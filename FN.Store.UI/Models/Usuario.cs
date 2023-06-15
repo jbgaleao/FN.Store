@@ -23,7 +23,7 @@ namespace FN.Store.UI.Models
 
         [Column(TypeName = "varchar")]
         [Required]
-        [StringLength(50)]
+        [StringLength(100)]
         public string Senha{ get; set; }
 
 

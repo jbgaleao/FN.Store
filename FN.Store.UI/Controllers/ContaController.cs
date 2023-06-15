@@ -1,4 +1,5 @@
 ﻿using FN.Store.UI.Data;
+using FN.Store.UI.Infra.Helpers;
 using FN.Store.UI.Models;
 using System.Linq;
 using System.Web.Mvc;
@@ -30,7 +31,7 @@ namespace FN.Store.UI.Controllers
             }
             else
             {
-                if (usuario.Senha != model.Senha)
+                if (usuario.Senha != model.Senha.Encrypt())
                 {
                     ModelState.AddModelError("Senha", "Senha Inválida");
                 }
