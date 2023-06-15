@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace FN.Store.UI.Models
 {
     [Table(nameof(TipoDeProduto))]
+
     public class TipoDeProduto : Entity
     {
         [Required, Column(TypeName = "varchar"), StringLength(100)]
